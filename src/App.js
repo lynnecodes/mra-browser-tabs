@@ -1,9 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
-import Tab from './components/tab';
-import Home from './pages/home';
-import About from './pages/about';
-import Features from './pages/features';
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from './components/header';
+import Routes from './routes';
 import './App.css';
 
 function App() {
@@ -11,31 +9,10 @@ function App() {
     <Router>
       <div className="app">
         <div className="browser">
-          <div className="tabs">
-            <Tab>
-              <NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink>
-            </Tab>
-            <Tab>
-              <NavLink to="/about" activeClassName="is-active">About</NavLink>
-            </Tab>
-            <Tab>
-              <NavLink to="/features" activeClassName="is-active">Features</NavLink>
-            </Tab>
-          </div>
+          <Header />
 
           <div className="viewport">
-            <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/features">
-                <Features />
-              </Route>
-              <Route path="/" exact={true}>
-                <Home />
-              </Route>
-            </Switch>
-
+            <Routes />
           </div>
         </div>
       </div>
